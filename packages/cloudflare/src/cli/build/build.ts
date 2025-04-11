@@ -17,6 +17,7 @@ import { compileDurableObjects } from "./open-next/compileDurableObjects.js";
 import { createServerBundle } from "./open-next/createServerBundle.js";
 import { createWranglerConfigIfNotExistent } from "./utils/index.js";
 import { getVersion } from "./utils/version.js";
+import { cpSync } from "node:fs";
 
 /**
  * Builds the application in a format that can be passed to workerd
@@ -72,6 +73,10 @@ export async function build(
 
   createStaticAssets(options);
 
+  cpSync(`${options.appPath}/.open-next/assets`, `${options.appPath}/.edge/storage`, {
+    recursive: true,
+  });
+
   if (config.dangerous?.disableIncrementalCache !== true) {
     const { useTagCache, metaFiles } = createCacheAssets(options);
 
@@ -94,8 +99,8 @@ export async function build(
 }
 
 function ensureNextjsVersionSupported(options: buildHelper.BuildOptions) {
-  if (buildHelper.compareSemver(options.nextVersion, "<", "14.2.0")) {
-    logger.error("Next.js version unsupported, please upgrade to version 14.2 or greater.");
+  if (buildHelper.compareSemver(options.nextVersion, "<", "13.0.0")) {
+    logger.error("Next.js version unsupported, please upgrade to version 13.0 or greater.");
     process.exit(1);
   }
 }

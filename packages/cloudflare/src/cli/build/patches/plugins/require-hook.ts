@@ -15,6 +15,12 @@ export function shimRequireHook(options: BuildOptions): Plugin {
           path: join(options.outputDir, "cloudflare-templates/shims/empty.js"),
         })
       );
+      build.onResolve(
+        { filter: getCrossPlatformPathRegex(String.raw`^\./node-environment$`, { escape: false }) },
+        () => ({
+          path: join(options.outputDir, "cloudflare-templates/shims/empty.js"),
+        })
+      );
     },
   };
 }

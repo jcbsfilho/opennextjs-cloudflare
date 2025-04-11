@@ -22,11 +22,18 @@ export async function patchCache(code: string, buildOpts: BuildOptions): Promise
   const outputPath = path.join(outputDir, "server-functions/default");
   const cacheFile = path.join(outputPath, getPackagePath(buildOpts), "cache.cjs");
 
+  const regex13 =
+    /CacheHandler\s*=\s*dynamicRequire\(\(0,\s*_path\.isAbsolute\)\(incrementalCacheHandlerPath\)\s*\?\s*incrementalCacheHandlerPath\s*:\s*\(0,\s*_path\.join\)\(this\.distDir,\s*incrementalCacheHandlerPath\)\);/;
+  const regex14 = /const { cacheHandler } = this\.nextConfig;/;
+
+  if (regex13.test(code)) {
+    return code.replace(regex13, `CacheHandler = require('${normalizePath(cacheFile)}');`);
+  }
   return code.replace(
-    "const { cacheHandler } = this.nextConfig;",
+    regex14,
     `
-const cacheHandler = null;
-CacheHandler = require('${normalizePath(cacheFile)}').default;
-`
+      const cacheHandler = null;
+      CacheHandler = require('${normalizePath(cacheFile)}').default;
+      `
   );
 }

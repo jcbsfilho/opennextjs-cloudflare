@@ -37,7 +37,7 @@ rule:
     - has: {pattern: $SELF_ID != $CHUNK_ID, stopBy: end}
     - has: {pattern: "$INSTALLED_CHUNK[$CHUNK_ID] = 1", stopBy: end}
 fix: |
-  ($CHUNK_ID, _) => {
+  ($CHUNK_ID, promises) => {
     if (!$INSTALLED_CHUNK[$CHUNK_ID]) {
       switch ($CHUNK_ID) {
 ${chunks.map((chunk) => `         case ${chunk}: $INSTALL(require("./chunks/${chunk}.js")); break;`).join("\n")}

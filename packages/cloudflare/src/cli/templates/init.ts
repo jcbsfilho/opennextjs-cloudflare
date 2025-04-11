@@ -40,16 +40,16 @@ let initialized = false;
  * Initializes the runtime on the first call,
  * no-op on subsequent invocations.
  */
-function init(request: Request, env: CloudflareEnv) {
+export function init(_request: Request, _env: CloudflareEnv) {
   if (initialized) {
     return;
   }
   initialized = true;
 
-  const url = new URL(request.url);
+  // const url = new URL(request.url);
 
   initRuntime();
-  populateProcessEnv(url, env);
+  // populateProcessEnv(url, env);
 }
 
 function initRuntime() {
@@ -102,7 +102,7 @@ function initRuntime() {
  * - the variables from Next .env* files
  * - the origin resolver information
  */
-function populateProcessEnv(url: URL, env: CloudflareEnv) {
+export function populateProcessEnv(url: URL, env: CloudflareEnv) {
   for (const [key, value] of Object.entries(env)) {
     if (typeof value === "string") {
       process.env[key] = value;

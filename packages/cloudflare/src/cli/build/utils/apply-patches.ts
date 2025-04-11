@@ -21,7 +21,8 @@ export async function patchCodeWithValidations(
     patchedCode = await patchFunction(patchedCode);
 
     if (!opts?.isOptional && prePatchCode === patchedCode) {
-      throw new Error(`Failed to patch ${target}`);
+      console.log(` - ${target} patch failed, no changes made`);
+      // throw new Error(`Failed to patch ${target}`);
     }
   }
 

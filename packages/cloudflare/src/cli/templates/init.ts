@@ -55,9 +55,8 @@ export function init(_request: Request, _env: CloudflareEnv) {
 function initRuntime() {
   // Some packages rely on `process.version` and `process.versions.node` (i.e. Jose@4)
   // TODO: Remove when https://github.com/unjs/unenv/pull/493 is merged
-  Object.assign(process, { version: process.version || "v22.14.0" });
-  // @ts-expect-error Node type does not match workerd
-  Object.assign(process.versions, { node: "22.14.0", ...process.versions });
+  // Object.assign(process, { version: process.version || "v22.14.0" });
+  // Object.assign(process.versions, { node: "22.14.0", ...process.versions });
 
   globalThis.__dirname ??= "";
   globalThis.__filename ??= "";

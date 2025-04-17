@@ -44,6 +44,11 @@ export default {
         return env.ASSETS?.fetch(event.request);
       }
 
+      const assetRegex = /\.(css|js|ttf|woff|woff2|pdf|svg|jpg|jpeg|gif|bmp|png|ico|mp4|json|xml)$/;
+      if (url.pathname.match(assetRegex)) {
+        return env.ASSETS?.fetch(event.request);
+      }
+
       // @ts-expect-error: resolved by wrangler build
       const { handler } = await import("./server-functions/default/handler.mjs");
 

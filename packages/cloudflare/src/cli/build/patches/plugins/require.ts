@@ -44,6 +44,16 @@ export function fixRequire(updater: ContentUpdater): Plugin {
             `require("next/dist/compiled/@opentelemetry/api")`
           );
 
+          // replace any require to import
+          contents = contents.replace(/require\((["'])(.+?)\1\)/g, (_, __, path) => {
+            // Se o caminho for um módulo Node.js ou de node_modules, use import dinâmico
+            const pathsMatch = ["node:stream", "stream"];
+            if (pathsMatch.includes(path)) {
+              return `globalThis.stream`;
+            }
+            return _;
+          });
+
           return contents;
         },
       },

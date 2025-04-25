@@ -326,7 +326,7 @@ const initOpenNextCloudflareForDevErrorMsg =
   ` \`initOpenNextCloudflareForDev\` from the Next.js config file.\n` +
   `You should update your Next.js config file as shown below:\n\n` +
   "   ```\n   // next.config.mjs\n\n" +
-  `   import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";\n\n` +
+  `   import { initOpenNextCloudflareForDev } from "@opennextjs/azion";\n\n` +
   `   initOpenNextCloudflareForDev();\n\n` +
   "   const nextConfig = { ... };\n" +
   "   export default nextConfig;\n" +

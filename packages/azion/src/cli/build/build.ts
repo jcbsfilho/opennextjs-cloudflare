@@ -43,7 +43,7 @@ export async function build(
   buildHelper.printNextjsVersion(options);
   ensureNextjsVersionSupported(options);
   const { aws, cloudflare } = getVersion();
-  logger.info(`@opennextjs/cloudflare version: ${cloudflare}`);
+  logger.info(`@opennextjs/azion version: ${cloudflare}`);
   logger.info(`@opennextjs/aws version: ${aws}`);
 
   if (projectOpts.skipNextBuild) {

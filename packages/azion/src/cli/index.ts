@@ -18,7 +18,7 @@ import { upload } from "./commands/upload.js";
 const nextAppDir = process.cwd();
 
 async function runCommand(args: Arguments) {
-  printHeader(`Cloudflare ${args.command}`);
+  printHeader(`Azion ${args.command}`);
 
   showWarningOnWindows();
 

@@ -20,7 +20,7 @@
     "remark-html": "^16.0.1"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "workspace:*",
+    "@opennextjs/azion": "workspace:*",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",

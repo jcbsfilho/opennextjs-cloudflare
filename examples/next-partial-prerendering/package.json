@@ -20,7 +20,7 @@
     "react-dom": "19.0.0-rc-8b08e99e-20240713"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "workspace:*",
+    "@opennextjs/azion": "workspace:*",
     "@tailwindcss/forms": "0.5.7",
     "@tailwindcss/typography": "0.5.13",
     "@types/node": "20.14.10",

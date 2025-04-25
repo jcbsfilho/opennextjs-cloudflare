@@ -1,3 +1,3 @@
-import { defineCloudflareConfig } from "@opennextjs/cloudflare";
+import { defineCloudflareConfig } from "@opennextjs/azion";
 
 export default defineCloudflareConfig();

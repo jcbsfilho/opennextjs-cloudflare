@@ -1,6 +1,6 @@
 import { headers } from "next/headers";
 
-import { getCloudflareContext } from "@opennextjs/cloudflare";
+import { getCloudflareContext } from "@opennextjs/azion";
 
 export async function GET() {
   const headersList = headers();

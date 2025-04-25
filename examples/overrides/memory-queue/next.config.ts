@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+import { initOpenNextCloudflareForDev } from "@opennextjs/azion";
 
 initOpenNextCloudflareForDev();
 

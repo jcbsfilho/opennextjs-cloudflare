@@ -18,7 +18,7 @@
     "next": "catalog:"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "workspace:*",
+    "@opennextjs/azion": "workspace:*",
     "@playwright/test": "catalog:",
     "@types/node": "catalog:",
     "@types/react": "catalog:",

@@ -15,7 +15,7 @@
     "e2e": "playwright test -c e2e/playwright.config.ts"
   },
   "dependencies": {
-    "@opennextjs/cloudflare": "workspace:*",
+    "@opennextjs/azion": "workspace:*",
     "@example/shared": "workspace:*",
     "next": "catalog:e2e",
     "react": "catalog:e2e",
